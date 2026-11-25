@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 fastapi
-uvicorn[standard]
+uvicorn
 sqlalchemy
-psycopg2-binary
-pydantic
 psycopg[binary]
-=======
-fastapi
-uvicorn[standard]
-sqlalchemy
-psycopg2-binary
-pydantic
->>>>>>> 95b52c09311342531474b31ef8f19c8202851d22
