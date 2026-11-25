@@ -1,6 +1,6 @@
 
 // Replace with your deployed FastAPI backend URL when hosting on Render
-const API_BASE = "https://lesson-hub-api.onrender.com";
+const API_BASE = "https://lesson-hub.onrender.com";
 
 const state = {
   classes: [],
