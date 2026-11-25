@@ -190,5 +190,4 @@ def post_resource(payload: ResourceCreate, db: Session = Depends(get_db)):
 def remove_resource(resource_id: int, db: Session = Depends(get_db)):
     deleted = delete_resource(db, resource_id)
     if not deleted:
->>>>>>> 95b52c09311342531474b31ef8f19c8202851d22
         raise HTTPException(status_code=404, detail="Resource not found")
