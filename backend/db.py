@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -20,4 +21,28 @@ def get_db():
     try:
         yield db
     finally:
+=======
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./lesson_hub.db")
+
+# Render PostgreSQL sometimes provides postgres://; SQLAlchemy expects postgresql://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
+
+engine = create_engine(DATABASE_URL, connect_args=connect_args)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+>>>>>>> 95b52c09311342531474b31ef8f19c8202851d22
         db.close()
